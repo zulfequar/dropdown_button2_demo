@@ -48,28 +48,34 @@ class _HomePageState extends State<HomePage> {
         foregroundColor: Colors.white,
         title: const Text('Dropdown Button2 Demo'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const SizedBox(height: 5),
-            const Text('Simple DropdownButton2 with no styling'),
-            const SizedBox(height: 5),
-            DropdownButton2(
-              isExpanded: true,
-              hint: const Text('Select an item'),
-              value: selectedItem,
-              onChanged: (String? newSelectedItem) {
-                setState(() {
-                  selectedItem = newSelectedItem;
-                });
-              },
-              items: items.map((item) => DropdownMenuItem(
-                value: item,
-                child: Text(item),
-              )).toList(),
-            ),
-          ],
+      body: Container(
+        color: Colors.lime.shade100,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const SizedBox(height: 5),
+              const Text('Simple DropdownButton2 with no styling'),
+              const SizedBox(height: 5),
+              SizedBox(
+                width: 200,
+                child: DropdownButton2(
+                  isExpanded: true,
+                  hint: const Text('Select an item'),
+                  value: selectedItem,
+                  onChanged: (String? newSelectedItem) {
+                    setState(() {
+                      selectedItem = newSelectedItem;
+                    });
+                  },
+                  items: items.map((item) => DropdownMenuItem(
+                    value: item,
+                    child: Text(item),
+                  )).toList(),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
